@@ -1,0 +1,14 @@
+{
+	"id": "60ad3f2e-7d96-4089-869a-a323419f9e7c",
+	"name": "crypto-environment",
+	"values": [
+		{
+			"key": "cryptoBaseUrl",
+			"value": "http://localhost:3001",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-07-13T16:13:45.938Z",
+	"_postman_exported_using": "Postman/7.36.5"
+}

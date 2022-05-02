@@ -1,0 +1,63 @@
+openapi: 3.0.1
+tags:
+- name: client
+  description: client
+paths:
+  /client/create/create:
+    post:
+      tags:
+      - client
+      summary: create an client
+      description: create an client
+      requestBody:
+        description: requested operation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateRequestDTO"
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponseDTO'
+components:
+  schemas:
+    CreateRequestDTO:
+      type: object
+      required:
+        - identification
+        - firstName
+        - lastName
+        - email
+        - providerMetadata
+      properties:
+        identification:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        providerMetadata:
+          description: additional information that can not be captured in the structured fields and/or any other specific block
+          type: object
+    CreateResponseDTO:
+      type: object
+      required: 
+        - client
+      properties:
+        client: 
+          type: object
+          $ref: '#/components/schemas/ClientDTO'
+    ClientDTO:
+      type: object
+      required: 
+        - clientId
+      properties:
+        clientId: 
+          type: number
+          description: clientId

@@ -1,0 +1,46 @@
+openapi: 3.0.1
+info:
+  title: 0mn1-backend-services
+  description: '0mn1 backend services suite'
+  termsOfService: pending
+  contact:
+    email: info@omni.cr
+  license:
+    name: pending
+    url: pending
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+- url: http://localhost:9000
+tags:
+- name: health
+  description: application health
+  externalDocs:
+    description: Find out more
+    url: http://swagger.io
+- name: core
+  description: core services
+  externalDocs:
+    description: Find out more
+    url: http://swagger.io
+paths:
+  /health:
+    get:
+      tags:
+      - health
+      summary: allow external systems to check application health
+      description: allow external systems to check application health
+      operationId: health
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: 
+                    type: string
+    
