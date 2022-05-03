@@ -1,22 +1,37 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Account } from 'model/account.entity';
 import { Client } from 'model/client.entity';
 import { CreateController } from './create.controller';
-import { CreateService } from './create.service';
+import { CreateRepositoryImpl } from './create.repository';
+import { CreateGateway } from './use-case/create.gateway';
+import { CreateService } from './use-case/create.service';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Client,
-      Account
+      Client
     ])
   ],
   controllers: [
     CreateController
   ],
   providers: [
-    CreateService
+    {
+      provide: CreateService,
+      useFactory(
+          createRepository: CreateRepositoryImpl,
+          createGateway: CreateGateway
+        ) {
+        return new CreateService(
+          createRepository,
+          createGateway,
+          new Logger(CreateService.name)
+        );
+      },
+      inject: [CreateRepositoryImpl, CreateGateway]
+    },
+    CreateRepositoryImpl,
+    CreateGateway
   ]
 })
 export class CreateModule { }

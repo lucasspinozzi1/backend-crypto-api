@@ -5,7 +5,7 @@ declare namespace client {
                 /**
                  * clientId
                  */
-                clientId: number;
+                clientId?: number;
             }
             export interface CreateRequestDTO {
                 identification: string;

@@ -1,7 +1,7 @@
 import { Controller, Logger, Post, Body } from "@nestjs/common";
 import { CustomJson } from "common/interceptor/serialize.interceptor";
 import * as _ from "lodash";
-import { CreateService } from "./create.service";
+import { CreateService } from "./use-case/create.service";
 
 type CreateRequestDTO = client.create.Schemas.CreateRequestDTO;
 type CreateResponseDTO = client.create.Schemas.CreateResponseDTO;
