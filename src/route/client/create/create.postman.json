@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "fe11424c-29b0-4363-8287-bf0d2445465a",
-		"name": "banking-mock account create",
+		"_postman_id": "60b25111-d166-4094-b077-ea569c4003a1",
+		"name": "crypto client create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,9 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"exec": [
-							""
-						],
+						"exec": [],
 						"type": "text/javascript"
 					}
 				}
@@ -23,7 +21,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"identification\": \"38123123\"\n}",
+					"raw": "{\n    \"identification\": \"26123123\",\n    \"firstName\": \"first-name\",\n    \"lastName\": \"last-name\",\n    \"email\": \"email\",\n    \"providerMetadata\": \"{}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -31,169 +29,16 @@
 					}
 				},
 				"url": {
-					"raw": "{{bankingMockBaseUrl}}/client-dev",
+					"raw": "http://localhost:3002/client/create/create",
+					"protocol": "http",
 					"host": [
-						"{{bankingMockBaseUrl}}"
+						"localhost"
 					],
+					"port": "3002",
 					"path": [
-						"client-dev"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "create-account",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.environment.set('accountId1', jsonData.accounts[0].providerAccountId);",
-							"pm.environment.set('accountId2', jsonData.accounts[1].providerAccountId);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\n    {\n        \"identification\": \"26123123\",\n        \"clientId\": \"38123123\",\n        \"firstName\": \"first-name\",\n        \"lastName\": \"last-name\",\n        \"email\": \"email\",\n        \"providerMetadata\": \"{}\"\n    }\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{bankingMockBaseUrl}}/account/create/create",
-					"host": [
-						"{{bankingMockBaseUrl}}"
-					],
-					"path": [
-						"account",
+						"client",
 						"create",
 						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "account",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{bankingMockBaseUrl}}/account-dev",
-					"host": [
-						"{{bankingMockBaseUrl}}"
-					],
-					"path": [
-						"account-dev"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "remove-account-01",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{bankingMockBaseUrl}}/account-dev/{{accountId1}}",
-					"host": [
-						"{{bankingMockBaseUrl}}"
-					],
-					"path": [
-						"account-dev",
-						"{{accountId1}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "remove-account-02",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{bankingMockBaseUrl}}/account-dev/{{accountId2}}",
-					"host": [
-						"{{bankingMockBaseUrl}}"
-					],
-					"path": [
-						"account-dev",
-						"{{accountId2}}"
 					]
 				}
 			},
