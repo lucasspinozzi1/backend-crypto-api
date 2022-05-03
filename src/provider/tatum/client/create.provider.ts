@@ -5,8 +5,8 @@ import { CreateGateway } from '../../../route/client/create/use-case/create.gate
 @Injectable()
 @Provider(CreateGateway)
 @Customer('tatum')
-export class MockCreateClientProvider implements CreateGateway {
-  private readonly logger = new Logger(MockCreateClientProvider.name);
+export class TatumClientProvider implements CreateGateway {
+  private readonly logger = new Logger(TatumClientProvider.name);
 
   async create(createRequestDTO: any): Promise<any> {
     this.logger.debug('Example mock create client gateway');

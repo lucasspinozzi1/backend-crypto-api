@@ -22,8 +22,8 @@ import { ENTITIES } from './model/index';
           password: choose(process.env.DB_PASSWORD, 'dbpass'),
           database: choose(process.env.DB_NAME, 'cryptoDb'),
           entities: ENTITIES,
-          retryAttempts: parseInt(choose(process.env.DB_WRITE_RETRY_ATTEMPS, '100')),
-          retryDelay: parseInt(choose(process.env.DB_WRITE_RETRY_DELAY, '5000')),
+          retryAttempts: parseInt(choose(process.env.DB_RETRY_ATTEMPS, '100')),
+          retryDelay: parseInt(choose(process.env.DB_RETRY_DELAY, '5000')),
           verboseRetryLog: true,
           // synchronize: true
         };
