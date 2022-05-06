@@ -1,11 +1,13 @@
 import { Global, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { ClientModule } from './client/client.module';
+import { RegisterModule } from './user/register/register.module';
 
 @Global()
 @Module({
   imports: [
-    ClientModule
+    ClientModule,
+    RegisterModule
   ],
   controllers: [
     AppController

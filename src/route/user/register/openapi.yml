@@ -1,0 +1,60 @@
+openapi: 3.0.1
+tags:
+- name: user
+  description: user
+paths:
+  /user/register/register:
+    post:
+      tags:
+      - user
+      summary: register an user
+      description: register an user
+      requestBody:
+        description: requested operation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterRequestDTO"
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterResponseDTO'
+components:
+  schemas:
+    CreateRequestDTO:
+      type: object
+      required:
+        - identification
+        - firstName
+        - lastName
+        - email
+        - password
+      properties:
+        identification:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    CreateResponseDTO:
+      type: object
+      required: 
+        - user
+      properties:
+        user: 
+          type: object
+          $ref: '#/components/schemas/UserDTO'
+    UserDTO:
+      type: object
+      properties:
+        userId: 
+          type: number
+          description: userId
