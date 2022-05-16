@@ -13,9 +13,7 @@ export class AuthRepositoryImpl implements AuthRepository {
   async findByEmail(
     email: string
   ): Promise<ClientDTO> {
-    console.log('loginClientRepository: ', email)
     const result =  await this.clientRepository.findOne({ email: email });
-    console.log('Result findeOne = ', result)
     return result;
   }
 }
