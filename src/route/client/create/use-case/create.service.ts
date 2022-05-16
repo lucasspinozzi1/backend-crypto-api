@@ -18,7 +18,7 @@ export class CreateService {
     this.logger.log("create client service")
     // In this method we can connect with an external dynamic provider to handle diferents types of clients.
     let { identification, firstName, lastName, email } = createRequestDTO;
-    await this.createGateway.create({}); // EXAMPLE Gateway call
+    // await this.createGateway.create({}); // EXAMPLE Gateway call
     const client = await this.createRepository.createClient({
       identification,
       firstName,
