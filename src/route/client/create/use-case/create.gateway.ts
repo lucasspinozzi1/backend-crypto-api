@@ -4,11 +4,10 @@ import CreateResponseDTO from "./gateway/create-responde.dto";
 
 @Gateway()
 export class CreateGateway {
-
   @ToProvide()
   async create(
     _createRequestDTO: CreateRequestDTO
   ): Promise<CreateResponseDTO> {
-    return Promise.reject('To be implemented');
+    return Promise.reject("To be implemented");
   }
 }

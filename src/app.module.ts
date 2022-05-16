@@ -9,6 +9,7 @@ import { exist, choose } from 'common/util';
 import { SerializeInterceptor } from 'common/interceptor/serialize.interceptor';
 import { RouteModule } from 'route/route.module';
 import { ENTITIES } from './model/index';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -30,7 +31,8 @@ import { ENTITIES } from './model/index';
       }
     }),
     CommonModule,
-    RouteModule
+    RouteModule,
+    AuthModule
   ],
   controllers: [],
   providers: [
